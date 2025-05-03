@@ -4,10 +4,12 @@ import { pinoLogger } from '@/middlewares/pino-logger.js'
 import serveEmojiFavicon from '@/middlewares/serve-emoji.favicon.js'
 import { OpenAPIHono } from '@hono/zod-openapi'
 import type { AppBindings } from '@/lib/types.js'
+import { defaultHook } from './open-api/default-hook'
 
 export function createRouter() {
   return new OpenAPIHono<AppBindings>({
     strict: false,
+    defaultHook,
   })
 }
 
