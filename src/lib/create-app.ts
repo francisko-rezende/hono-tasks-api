@@ -5,8 +5,14 @@ import serveEmojiFavicon from '@/middlewares/serve-emoji.favicon.js'
 import { OpenAPIHono } from '@hono/zod-openapi'
 import type { AppBindings } from '@/lib/types.js'
 
+export function createRouter() {
+  return new OpenAPIHono<AppBindings>({
+    strict: false,
+  })
+}
+
 export function createApp() {
-  const app = new OpenAPIHono<AppBindings>({ strict: false })
+  const app = createRouter()
   app.use(serveEmojiFavicon('📋'))
   app.use(pinoLogger())
 

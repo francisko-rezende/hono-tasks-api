@@ -1,17 +1,13 @@
 import { createApp } from '@/lib/create-app'
 import { configureOpenAPI } from '@/lib/configure-open-api'
+import { router as index } from './routes/index.route'
 
 const app = createApp()
+
+const routes = [index]
 configureOpenAPI(app)
-
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
-
-app.get('/error', (c) => {
-  c.status(422)
-  c.var.logger.debug('degug')
-  throw new Error('errou!')
+routes.forEach((route) => {
+  app.route('/', route)
 })
 
 export { app }
