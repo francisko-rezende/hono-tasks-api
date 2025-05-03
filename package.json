@@ -5,8 +5,8 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "lint": "npm run eslint",
-    "lint:fix": "npm run eslint --fix"
+    "lint": "eslint .",
+    "lint:fix": "npm run lint --fix"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.1",
