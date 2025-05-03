@@ -1,4 +1,4 @@
-import { UNPROCESSABLE_ENTITY } from '@/http-status-codes'
+import { httpStatusCodes } from '@/http-status-codes'
 import type { Hook } from '@hono/zod-openapi'
 
 // eslint-disable-next-line
@@ -9,7 +9,7 @@ export const defaultHook: Hook<any, any, any, any> = (result, c) => {
         success: result.success,
         error: result.error,
       },
-      UNPROCESSABLE_ENTITY,
+      httpStatusCodes.UNPROCESSABLE_ENTITY,
     )
   }
 }
