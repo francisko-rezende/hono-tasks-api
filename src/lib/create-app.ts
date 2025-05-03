@@ -6,7 +6,7 @@ import { OpenAPIHono } from '@hono/zod-openapi'
 import type { AppBindings } from '@/lib/types.js'
 
 export function createApp() {
-  const app = new OpenAPIHono<AppBindings>()
+  const app = new OpenAPIHono<AppBindings>({ strict: false })
   app.use(serveEmojiFavicon('📋'))
   app.use(pinoLogger())
 
