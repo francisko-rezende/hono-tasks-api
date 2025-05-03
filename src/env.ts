@@ -1,6 +1,6 @@
 // got the enum values from Level
 // import { Level } from 'pino'
-import { z } from 'zod'
+import { z, ZodError } from 'zod'
 import { config } from 'dotenv'
 import { expand } from 'dotenv-expand'
 
@@ -12,5 +12,17 @@ const envSchema = z.object({
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']),
 })
 
-// eslint-disable-next-line
-export const env = envSchema.parse(process.env)
+export type Env = z.infer<typeof envSchema>
+let env: Env
+
+try {
+  // eslint-disable-next-line
+  env = envSchema.parse(process.env)
+} catch (e) {
+  const error = e as ZodError
+  console.error('❌ Invalid env:')
+  console.error(error.flatten().fieldErrors)
+  process.exit(1)
+}
+
+export { env }
