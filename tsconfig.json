@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -15,3 +17,23 @@
   },
   "exclude": ["node_modules"]
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "jsx": "react-jsx",
+//     "jsxImportSource": "hono/jsx",
+//     "baseUrl": "./",
+//     "module": "ESNext",
+//     "moduleResolution": "Bundler",
+//     "paths": {
+//       "@/*": ["./src/*"]
+//     },
+//     "types": ["node"],
+//     "strict": true,
+//     "outDir": "./dist",
+//     "skipLibCheck": true
+//   }
+
+
+// }
