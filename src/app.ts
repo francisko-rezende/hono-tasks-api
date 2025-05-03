@@ -3,6 +3,10 @@ import { notFound } from './middlewares/not-found.js'
 import onError from './middlewares/on-error.js'
 import { pinoLogger } from './middlewares/pino-logger.js'
 import type { PinoLogger } from 'hono-pino'
+import { config } from 'dotenv'
+import { expand } from 'dotenv-expand'
+
+expand(config())
 
 type AppBindings = {
   Variables: {
@@ -20,6 +24,7 @@ app.get('/', (c) => {
 
 app.get('/error', (c) => {
   c.status(422)
+  c.var.logger.debug('degug')
   throw new Error('errou!')
 })
 
