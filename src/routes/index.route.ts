@@ -4,7 +4,7 @@ import jsonContent from '@/lib/open-api/helpers/json-content'
 import { createMessageObjectSchema } from '@/lib/open-api/schemas/create-message-object-schema'
 import { createRoute } from '@hono/zod-openapi'
 
-const router = createRouter().openapi(
+const indexRouter = createRouter().openapi(
   createRoute({
     method: 'get',
     tags: ['Index'],
@@ -26,4 +26,4 @@ const router = createRouter().openapi(
   },
 )
 
-export { router }
+export { indexRouter }
