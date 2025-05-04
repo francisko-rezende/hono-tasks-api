@@ -1,7 +1,8 @@
 import { httpStatusCodes } from '@/http-status-codes'
 import { createRouter } from '@/lib/create-app'
 import jsonContent from '@/lib/open-api/helpers/json-content'
-import { createRoute, z } from '@hono/zod-openapi'
+import { createMessageObjectSchema } from '@/lib/open-api/schemas/create-message-object-schema'
+import { createRoute } from '@hono/zod-openapi'
 
 const router = createRouter().openapi(
   createRoute({
@@ -9,7 +10,7 @@ const router = createRouter().openapi(
     path: '/',
     responses: {
       [httpStatusCodes.OK]: jsonContent({
-        schema: z.object({ message: z.string() }),
+        schema: createMessageObjectSchema({ exampleMessage: 'Tasks API' }),
         description: 'Tasks API index',
       }),
     },
