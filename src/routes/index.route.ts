@@ -7,6 +7,7 @@ import { createRoute } from '@hono/zod-openapi'
 const router = createRouter().openapi(
   createRoute({
     method: 'get',
+    tags: ['Index'],
     path: '/',
     responses: {
       [httpStatusCodes.OK]: jsonContent({
