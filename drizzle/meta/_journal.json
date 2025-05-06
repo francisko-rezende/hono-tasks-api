@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1746366284911,
+      "tag": "0000_create-tasks-table",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1746367594263,
+      "tag": "0001_default-uuid-pk-tasks",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1746373976582,
+      "tag": "0002_create-at-and-updated-at-columns-tasks",
+      "breakpoints": true
+    }
+  ]
+}

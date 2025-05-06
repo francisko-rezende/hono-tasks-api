@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: hono-tasks-api-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
