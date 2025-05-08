@@ -5,7 +5,7 @@ type JsonContentParams<TSchema> = {
   description: string
 }
 
-const jsonContent = <TSchema extends ZodSchema>({
+export const jsonContent = <TSchema extends ZodSchema>({
   schema,
   description,
 }: JsonContentParams<TSchema>) => {
@@ -18,5 +18,3 @@ const jsonContent = <TSchema extends ZodSchema>({
     description,
   }
 }
-
-export default jsonContent
