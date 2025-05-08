@@ -13,7 +13,15 @@ export const db = drizzle({
 
 async function main() {
   await reset(db, { tasksTable })
-  await seed(db, { tasksTable })
+  await seed(db, { tasksTable }).refine((f) => ({
+    tasksTable: {
+      columns: {
+        name: f.loremIpsum({ sentencesCount: 1 }),
+        createdAt: f.date({ maxDate: '2025-05-07' }),
+        updatedAt: f.date({ maxDate: '2025-05-07' }),
+      },
+    },
+  }))
   console.log('db seeded!')
 }
 

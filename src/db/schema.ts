@@ -1,6 +1,6 @@
 import { sql } from 'drizzle-orm'
 import { pgTable, varchar, uuid, boolean, timestamp } from 'drizzle-orm/pg-core'
-import { createSelectSchema } from 'drizzle-zod'
+import { createSelectSchema, createInsertSchema } from 'drizzle-zod'
 
 export const tasksTable = pgTable('tasks', {
   id: uuid().defaultRandom().primaryKey(),
@@ -14,3 +14,9 @@ export const tasksTable = pgTable('tasks', {
 })
 
 export const selectTasksSchema = createSelectSchema(tasksTable)
+
+export const insertTasksSchema = createInsertSchema(tasksTable).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+})
