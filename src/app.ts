@@ -1,13 +1,13 @@
 import type { PinoLogger } from 'hono-pino'
 
 import { OpenAPIHono } from '@hono/zod-openapi'
-import { config } from 'dotenv'
-import { expand } from 'dotenv-expand'
 import { requestId } from 'hono/request-id'
 
 import { notFound } from '@/middlewares/not-found.js'
 import { onError } from '@/middlewares/on-error.js'
 import { pinoLogger } from '@/middlewares/pino-logger.js'
+
+import { serveEmojiFavicon } from './middlewares/serve-emoji-favicon.js'
 
 type AppBindings = {
   Variables: {
@@ -15,10 +15,8 @@ type AppBindings = {
   }
 }
 
-expand(config())
-
 const app = new OpenAPIHono<AppBindings>()
-app.use(requestId()).use(pinoLogger())
+app.use(requestId()).use(pinoLogger()).use(serveEmojiFavicon('📋'))
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
