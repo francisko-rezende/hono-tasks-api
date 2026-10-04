@@ -19,4 +19,4 @@ const onError: ErrorHandler = (err, c) => {
   )
 }
 
-export default onError
+export { onError }

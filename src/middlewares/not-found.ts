@@ -12,4 +12,4 @@ const notFound: NotFoundHandler = (c) => {
   )
 }
 
-export default notFound
+export { notFound }
