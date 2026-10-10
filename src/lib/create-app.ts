@@ -7,7 +7,9 @@ import { pinoLogger } from '@/middlewares/pino-logger.js'
 import { serveEmojiFavicon } from '@/middlewares/serve-emoji-favicon.js'
 
 function createApp() {
-  const app = new OpenAPIHono<AppBindings>()
+  const app = new OpenAPIHono<AppBindings>({
+    strict: false,
+  })
 
   app.use(requestId())
   app.use(pinoLogger())
