@@ -3,12 +3,14 @@ import { requestId } from 'hono/request-id'
 
 import type { AppBindings } from '@/lib/types.js'
 
+import { defaultHook } from '@/middlewares/defaultHook.js'
 import { pinoLogger } from '@/middlewares/pino-logger.js'
 import { serveEmojiFavicon } from '@/middlewares/serve-emoji-favicon.js'
 
 function createRouter() {
   const app = new OpenAPIHono<AppBindings>({
     strict: false,
+    defaultHook,
   })
 
   return app
