@@ -3,7 +3,7 @@ import { requestId } from 'hono/request-id'
 
 import type { AppBindings } from '@/lib/types.js'
 
-import { defaultHook } from '@/middlewares/defaultHook.js'
+import { defaultHook } from '@/helpers/default-hook.js'
 import { pinoLogger } from '@/middlewares/pino-logger.js'
 import { serveEmojiFavicon } from '@/middlewares/serve-emoji-favicon.js'
 
