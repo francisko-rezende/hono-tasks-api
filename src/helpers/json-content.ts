@@ -17,4 +17,4 @@ const jsonContent = <T extends ZodSchema>({
   }
 }
 
-export default jsonContent
+export { jsonContent }
