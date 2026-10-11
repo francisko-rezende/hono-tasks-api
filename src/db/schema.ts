@@ -19,7 +19,7 @@ export const insertTasksSchema = toZodV4SchemaTyped(
   createInsertSchema(tasks, {
     name: (field) => field.min(1).max(500),
   })
-    .required({ done: true })
+    // .required({ done: true })
     .omit({ id: true, createdAt: true, updatedAt: true }),
 )
 
