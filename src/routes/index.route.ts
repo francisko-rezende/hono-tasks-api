@@ -10,8 +10,8 @@ const index = createRouter().openapi(
     method: 'get',
     path: '/',
     responses: {
-      [STATUS_CODE_OK]: jsonContent(
-        z
+      [STATUS_CODE_OK]: jsonContent({
+        schema: z
           .object({
             message: z.string(),
           })
@@ -20,8 +20,8 @@ const index = createRouter().openapi(
               message: 'Tasks API',
             },
           }),
-        'Tasks API index',
-      ),
+        description: 'Tasks API index',
+      }),
     },
   }),
   (c) => {
