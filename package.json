@@ -9,7 +9,12 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "fmt:check": "oxfmt --check",
+    "db:up": "sudo docker compose up -d --wait",
+    "db:down": "sudo docker compose down -v",
+    "db:reset": "pnpm db:down && pnpm db:up",
+    "db:logs": "sudo docker compose logs -f db",
+    "db:psql": "sudo docker compose exec db sh -c 'psql -U $POSTGRES_USER -d $POSTGRES_DB'"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.3",
